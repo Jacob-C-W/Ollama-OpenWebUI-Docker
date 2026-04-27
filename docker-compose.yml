@@ -1,0 +1,47 @@
+# docker-compose up -d (To start)
+# docker compose down (To shut)
+# docker compose down -v (THIS DELETES VOLUMES)
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    volumes:
+      - ollama_data:/root/.ollama
+    ports:
+      - "11434:11434"        # Don't touch!
+    deploy:
+      resources:
+        limits:
+          cpus: "4.0"        # Limits CPU Core usage
+          memory: 8G         # Limits RAM usage
+    restart: unless-stopped
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    ports:
+      - "3000:8080"          # Feel free to swap out 3000 for a different open port on your localhost. 
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+    volumes:
+      - open-webui_data:/app/backend/data
+    depends_on:
+      - ollama
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
+  open-webui_data:
+  
+# http://localhost:11434 will show ollama is running while http://localhost:3000 will host the webui. 
+# first setup go to localhost:3000
+# enter name, email, password
+# under connections @http://ollama:11434 goto manage and pull the model desired.
+#
+# Models can be found at: https://ollama.com/search
+# My advice, find and tune models using trusted LLOMs like Claude. Let it know you're using open-webui, ollama models, and your machine specs and use it to configure or find models for best results. 
+#
+# Two models I use on lower end hardware are:
+# Deepseek-R1:7b # Deepseek's reasoning model distilled in Qwen7B sitting at 4.7GB on disk but also takes more resources than something like Phi3:mini.
+# Phi3:mini # Microsoft's lightweight (3B) model only taking 2.2GB of disk space.  
