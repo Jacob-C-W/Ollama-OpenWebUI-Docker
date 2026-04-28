@@ -9,13 +9,17 @@ services:
     volumes:
       - ollama_data:/root/.ollama
     ports:
-      - "11434:11434"        # Don't touch!
+      - "11434:11434"                 # Don't touch!
     deploy:
       resources:
         limits:
-          cpus: "4.0"        # Limits CPU Core usage
-          memory: 8G         # Limits RAM usage
-          # 
+          cpus: "4.0"                 # Limits CPU Core usage
+          memory: 8G                  # Limits RAM usage
+        #reservations:                # Remove comment at start of line if using an Nvidia GPU
+          #devices:                   # Remove comment at start of line if using an Nvidia GPU
+            #- driver: "nvidia"       # Remove comment at start of line if using an Nvidia GPU
+              #device_ids: ["0"]      # Remove comment at start of line if using an Nvidia GPU
+              #capabilities: [gpu]    # Remove comment at start of line if using an Nvidia GPU
     restart: unless-stopped
 
   open-webui:
