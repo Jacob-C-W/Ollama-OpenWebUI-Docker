@@ -102,11 +102,11 @@ Now we can start up this compose and pull the images and finally start the conta
 
 ## Open-WebUI Configuration
  
-http://localhost:11434 will show ollama is running while http://localhost:38080 will host the webui. 
+http://localhost:11434 will show ollama is running while http://localhost:3000 will host the webui. 
 
 First, make sure Ollama is running at http://localhost:11434 
 
-Then, after a while go to localhost:8080 to begin the setup process. Be aware it can take Open-WebUI time to startup. 
+Then, after a while go to localhost:3000 to begin the setup process. Be aware it can take Open-WebUI time to startup. 
 
 Enter name, email, password
 
