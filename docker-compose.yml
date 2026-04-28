@@ -26,7 +26,7 @@ services:
     image: ghcr.io/open-webui/open-webui:main
     container_name: open-webui
     ports:
-      - "3000:8080"          # Feel free to swap out 3000 for a different open port on your localhost. 
+      - "3000:8080"                   # Feel free to swap out 3000 for a different open port on your localhost. 
     environment:
       - OLLAMA_BASE_URL=http://ollama:11434
     volumes:
