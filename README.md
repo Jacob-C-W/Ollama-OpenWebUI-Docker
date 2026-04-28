@@ -97,6 +97,9 @@ Copy the details from docker-compose.yml file in the repository here.
 
 Now we can start up this compose and pull the images and finally start the containers. It may take a while to download the images depending on your internet, and then OpenWebUI can take a while to boot, so please be patient. 
 
+        cd ollama/
+        docker-compose up -d
+
 ## Open-WebUI Configuration
  
 http://localhost:11434 will show ollama is running while http://localhost:38080 will host the webui. 
