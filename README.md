@@ -1,5 +1,5 @@
 # Ollama-OpenWebUI-Docker
-Docker compose file for Ollama and OpenWebUI
+Docker compose file for [Ollama](https://ollama.com/) and [OpenWebUI](https://github.com/open-webui/open-webui)
 
 First we need to setup a spare PC or server with [Ubuntu Server](https://ubuntu.com/download/server), unless you already have a machine running docker or would prefer a virtual machine. 
 
