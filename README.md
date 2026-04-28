@@ -1,7 +1,7 @@
 # Ollama-OpenWebUI-Docker
 Docker compose file for Ollama and OpenWebUI
 
-First we need to setup a spare PC or server with Ubuntu Server, unless you already have a machine running docker or would prefer a virtual machine. 
+First we need to setup a spare PC or server with [Ubuntu Server](https://ubuntu.com/download/server), unless you already have a machine running docker or would prefer a virtual machine. 
 
 ## Setup machine with Ubuntu Server
 
@@ -31,6 +31,7 @@ First we need to setup a spare PC or server with Ubuntu Server, unless you alrea
 #
 
 **Next let’s work on getting basic docker dependencies built.**
+Click here to learn more about [Docker Compose](https://docs.docker.com/compose/).
 
     !
     sudo apt update
@@ -110,6 +111,6 @@ Under connections @http://ollama:11434 goto manage and pull the model desired.
 
 *Models can be found at: https://ollama.com/search*
 
-**My advice**, find and tune models using trusted LLOMs like Claude. Let it know you're using open-webui, ollama models, and your machine specs and use that context to configure or find models for best results. Go ahead and provide it your use case as well to get the best results. Example:  I need a model to help me learn code, I need a model to help me with my kid's homework, I need a model for gardening, etc. 
+**My advice**, find and tune models using trusted LLOMs like [Claude](https://claude.ai/). Let it know you're using open-webui, ollama models, and your machine specs and use that context to configure or find models for best results. Go ahead and provide it your use case as well to get the best results. Example: I need a model to help me learn code, I need a model to help me with my kid's homework, I need a model for gardening, etc. 
 
 

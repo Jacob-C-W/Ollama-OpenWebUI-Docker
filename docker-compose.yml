@@ -4,31 +4,32 @@
 
 services:
   ollama:
-    image: ollama/ollama:latest
-    container_name: ollama
-    volumes:
-      - ollama_data:/root/.ollama
-    ports:
-      - "11434:11434"        # Don't touch!
-    deploy:
-      resources:
-        limits:
-          cpus: "4.0"        # Limits CPU Core usage
-          memory: 8G         # Limits RAM usage
-    restart: unless-stopped
+    image: ollama/ollama:latest
+    container_name: ollama
+    volumes:
+      - ollama_data:/root/.ollama
+    ports:
+      - "11434:11434"        # Don't touch!
+    deploy:
+      resources:
+        limits:
+          cpus: "4.0"        # Limits CPU Core usage
+          memory: 8G         # Limits RAM usage
+          # 
+    restart: unless-stopped
 
   open-webui:
-    image: ghcr.io/open-webui/open-webui:main
-    container_name: open-webui
-    ports:
-      - "3000:8080"          # Feel free to swap out 3000 for a different open port on your localhost. 
-    environment:
-      - OLLAMA_BASE_URL=http://ollama:11434
-    volumes:
-      - open-webui_data:/app/backend/data
-    depends_on:
-      - ollama
-    restart: unless-stopped
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    ports:
+      - "3000:8080"          # Feel free to swap out 3000 for a different open port on your localhost. 
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+    volumes:
+      - open-webui_data:/app/backend/data
+    depends_on:
+      - ollama
+    restart: unless-stopped
 
 volumes:
   ollama_data:
